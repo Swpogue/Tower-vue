@@ -4,11 +4,11 @@
       <div class="col-12">
         <div class="d-flex justify-content-around my-3 bg-info rounded p-3">
           <!-- TODO make these buttons work -->
-          <button @click="filterBy = ''" class="btn btn-outline-light w-25 mx-2">All</button>
-          <button @click="filterBy = 'concert'" class="btn btn-outline-light w-25 mx-2">Concert</button>
-          <button @click="filterBy = 'conventions'" class="btn btn-outline-light w-25 mx-2">Conventions</button>
-          <button @click="filterBy = 'sport'" class="btn btn-outline-light w-25 mx-2">Sport</button>
-          <button @click="filterBy = 'digital'" class="btn btn-outline-light w-25 mx-2">Digital</button>
+          <button @click="filterBy = ''" class="btn btn-bg-info text-white w-40 mx-2">All</button>
+          <button @click="filterBy = 'concert'" class="btn btn-bg-info text-white w-40 mx-2">Concert</button>
+          <button @click="filterBy = 'conventions'" class="btn btn-bg-info text-white w-40 mx-2">Conventions</button>
+          <button @click="filterBy = 'sport'" class="btn btn-bg-info text-white w-40 mx-2">Sport</button>
+          <button @click="filterBy = 'digital'" class="btn btn-bg-info text-white w-40 mx-2">Digital</button>
         </div>
       </div>
     </section>
