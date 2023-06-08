@@ -29,12 +29,15 @@
     <div class="col-6 card p-2">
       <form @submit.prevent="createComment()" class="card elevation-3">
         <div class="m-2 d-flex">
-          <img id="profile-img" class="p-2 col-md-2" :src="account.picture" :alt="account.name">
-          <textarea v-model="editable.body" class="comment-form col-10" placeholder="Comment here" id="textarea"></textarea>
+          <img id="profile-img" class="p-2 col-md-2 rounded-circle" :src="account.picture" :alt="account.name">
+          <textarea v-model="editable.body" class="comment-form col-10 rounded" placeholder="Comment here" id="textarea"></textarea>
           <label for="textarea"></label>
         </div>
         <button class="btn btn-primary m-2">Post IT!</button>
       </form>
+      <div v-for="c in comments" :key="c.id" class="row p-2 border border-dark">
+      <CommentCard :comment="c" />
+      </div>
     </div>
   </section>
 </template>
@@ -82,6 +85,7 @@ export default {
       event: computed(() => AppState.activeEvent),
       editable,
       account: computed(() => AppState.account),
+      comments: computed(()=> AppState.comments),
 
       async createComment() {
         try {
