@@ -18,6 +18,18 @@ class TowerEventsService {
     logger.log('GETTING AN EVENT!', res.data)
   }
 
+  async createEvent(formData){
+    const res = await api.post('api/events', formData)
+    return res.data
+  }
+
+  async cancelEvent(towerEventId) {
+    // const towerEventId = AppState.towerEvents.id
+    const res = await api.delete(`api/events/${towerEventId}`)
+    logger.log('CANCELED!', res.data)
+    AppState.towerEvents.isCanceled = true
+  }
+
 
 }
 

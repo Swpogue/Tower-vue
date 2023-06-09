@@ -27,33 +27,34 @@ import { computed, onMounted, ref } from "vue";
 import EventCard from "../components/EventCard.vue";
 import { AppState } from '../AppState.js'
 import { logger } from "../utils/Logger.js";
+import CreateEventForm from "../components/CreateEventForm.vue";
 
 export default {
-    setup() {
-      const filterBy = ref('')
-      onMounted(() => { getTowerEvents(); });
-        async function getTowerEvents() {
-            try {
-                await towerEventsService.getTowerEvents();
-                logger.log("HOMEPAGE")
-            }
-            catch (error) {
-                Pop.error(error);
-            }
+  setup() {
+    const filterBy = ref('')
+    onMounted(() => { getTowerEvents(); });
+    async function getTowerEvents() {
+      try {
+        await towerEventsService.getTowerEvents();
+        // logger.log("HOMEPAGE")
+      }
+      catch (error) {
+        Pop.error(error);
+      }
+    }
+    return {
+      filterBy,
+      towerEvents: computed(() => {
+        if (filterBy.value == '') {
+          return AppState.towerEvents
+        } else {
+          return AppState.towerEvents.filter(t => t.type == filterBy.value)
         }
-        return {
-          filterBy,
-          towerEvents: computed(()=> {
-            if (filterBy.value == '') {
-              return  AppState.towerEvents
-            }else {
-              return AppState.towerEvents.filter(t => t.type == filterBy.value)
-            }
-          })
+      })
 
-        };
-    },
-    components: { EventCard },
+    };
+  },
+  components: { EventCard, CreateEventForm },
 }
 </script>
 

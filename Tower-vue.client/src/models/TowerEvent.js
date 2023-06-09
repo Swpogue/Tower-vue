@@ -16,3 +16,4 @@ export class TowerEvent{
     this.creator = data.creator
   }
 }
+

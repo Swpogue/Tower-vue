@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'EventDetailsPage', params: { id: towerEvent.id } }">
+  <router-link :to="{ name: 'AccountPage', params: { id: towerEvent.id } }">
   <div class="rounded elevation-5 event-card">
       <img class="rounded-top" :src="towerEvent.coverImg" :alt="towerEvent.name">
       <div class="text-center p-2 rounded-bottom text-black fw-bold">
@@ -7,7 +7,6 @@
         <!-- TODO put ticket count here  -->
         <p class="m-0">{{ towerEvent.ticketCount }} of {{ towerEvent.capacity }}<i class="mdi mdi-ticket ps-2"></i></p>
         <p v-if="towerEvent.isCanceled" class="mb-0 canceled">Canceled</p>
-        <!-- <button v-if="route.path.includes('account')"><i class="mdi mdi-ticket"></i>Sell</button> -->
       </div>
     </div>
   </router-link>
@@ -15,19 +14,13 @@
 
 
 <script>
-import { computed } from "vue"
-import { useRoute } from "vue-router"
 import { TowerEvent } from "../models/TowerEvent.js"
-import { logger } from "../utils/Logger.js"
 export default {
   props: {
     towerEvent: { type: TowerEvent, required: true }
   },
   setup() {
-    // const route = useRoute()
     return {
-      // route,
-      // myRoute: computed(()=> logger.log(route.path))
     }
 
   }
