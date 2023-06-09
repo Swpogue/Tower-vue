@@ -7,13 +7,13 @@
         <p class="m-0">{{ towerEvent.ticketCount }} of {{ towerEvent.capacity }}<i class="mdi mdi-ticket ps-2"></i></p>
         <p v-if="towerEvent.isCanceled" class="mb-0 canceled">Canceled</p>
       </div>
+      
     </div>
   <!-- </router-link> -->
 </template>
 
 
 <script>
-import { TowerEvent } from "../models/TowerEvent.js"
 export default {
   props: {
     towerEvent: { type: Object, required: true }

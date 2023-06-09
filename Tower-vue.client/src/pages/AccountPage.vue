@@ -4,7 +4,7 @@
     <div class="p-3" v-for="m in myTickets" :key="m.id">
       <MyTicketsCard :towerEvent="m.event" />
       <!-- {{ myTickets }} -->
-      <button @click="deleteTicket()">Sell</button>
+      <button @click="deleteTicket(m.id)">Sell</button>
     </div>
   </div>
 </template>
@@ -31,10 +31,10 @@ export default {
       myTickets: computed(() => AppState.myTickets),
       // towerEvent: computed(() => AppState.towerEvents),
 
-      async deleteTicket() {
+      async deleteTicket(ticketId) {
         try {
-            const myTicket = AppState.myTickets.find(c => c.accountId == AppState.user.id)
-            await ticketsService.deleteTicket(myTicket.id)
+            // const myTicket = AppState.myTickets.find(c => c.accountId == AppState.user.id)
+            await ticketsService.deleteTicket(ticketId)
         
         } catch (error) {
           // Pop.error('NOT YOUR TICKET')

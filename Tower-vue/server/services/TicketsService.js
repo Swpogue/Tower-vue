@@ -15,7 +15,7 @@ class TicketsService{
     if (ticket.accountId != userId) throw new Forbidden("Not your Account!")
     
     await ticket.remove()
-    return `${ticket.profile.name} and ${ticket.towerEvent.name} is canceled.`
+    return ` is canceled.`
     
   }
   async findEventTickets(eventId) {

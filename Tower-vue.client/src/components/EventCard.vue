@@ -15,19 +15,13 @@
 
 
 <script>
-import { computed } from "vue"
-import { useRoute } from "vue-router"
 import { TowerEvent } from "../models/TowerEvent.js"
-import { logger } from "../utils/Logger.js"
 export default {
   props: {
     towerEvent: { type: TowerEvent, required: true }
   },
   setup() {
-    // const route = useRoute()
     return {
-      // route,
-      // myRoute: computed(()=> logger.log(route.path))
     }
 
   }
