@@ -1,15 +1,14 @@
 <template>
-  <router-link :to="{ name: 'AccountPage', params: { id: towerEvent.id } }">
+  <!-- <router-link :to="{ name: 'AccountPage', params: { id: towerEvent.id } }"> -->
   <div class="rounded elevation-5 event-card">
       <img class="rounded-top" :src="towerEvent.coverImg" :alt="towerEvent.name">
       <div class="text-center p-2 rounded-bottom text-black fw-bold">
         <p class="m-0">{{ towerEvent.name }}</p>
-        <!-- TODO put ticket count here  -->
         <p class="m-0">{{ towerEvent.ticketCount }} of {{ towerEvent.capacity }}<i class="mdi mdi-ticket ps-2"></i></p>
         <p v-if="towerEvent.isCanceled" class="mb-0 canceled">Canceled</p>
       </div>
     </div>
-  </router-link>
+  <!-- </router-link> -->
 </template>
 
 
@@ -17,7 +16,7 @@
 import { TowerEvent } from "../models/TowerEvent.js"
 export default {
   props: {
-    towerEvent: { type: TowerEvent, required: true }
+    towerEvent: { type: Object, required: true }
   },
   setup() {
     return {

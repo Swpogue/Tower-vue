@@ -1,14 +1,16 @@
 <template>
-  <div class="p-2 col-md-2">
-    <img class="rounded-circle" :src="comment.creator.picture" alt="">
-    <p class="mb-0 pt-1">{{ comment.creator.name }}</p>
+  <div class="row">
+    <div class="p-2 col-md-2">
+      <img class="rounded-circle" :src="comment.creator.picture" alt="">
+      <p class="mb-0 pt-1">{{ comment.creator.name }}</p>
+    </div>
+    <div class="col-md-10 pt-3">
+      <p>{{ comment.body }}</p>
+    </div>
+    <div>
+      <i v-if="comment.creatorId == account.id" @click="deleteComment()" class="mdi mdi-delete pe-1 icon"></i>
+    </div>
   </div>
-<div class="col-md-10 pt-3">
-<p>{{ comment.body }}</p>
-</div>
-<div>
-  <i v-if="comment.creatorId == account.id" @click="deleteComment()" class="mdi mdi-delete pe-1 icon"></i>
-</div>
 </template>
 
 

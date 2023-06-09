@@ -39,7 +39,7 @@
             <div>
               <select name="type" id="type" v-model="editable.type">
                 <option value="concert">Concert</option>
-                <option value="conventions">Conventions</option>
+                <option value="convention">Conventions</option>
                 <option value="sport">Sport</option>
                 <option value="digital">Digital</option>
               </select>

@@ -31,7 +31,12 @@ async getMyTickets(){
   AppState.myTickets = res.data.map(m => new Ticket(m))
   logger.log(res.data)
 }
-
+ 
+async deleteTicket(myTicketId){
+  const res = await api.delete(`api/tickets/${myTicketId}`)
+  AppState.myTickets = AppState.myTickets.filter(t => t.id != myTicketId)
+  logger.log(res.data)
+}
 
 }
 

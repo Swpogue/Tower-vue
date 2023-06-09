@@ -42,21 +42,25 @@
   </section>
 
   <!-- Comment Section -->
-  <section class="row justify-content-center" v-if="account.id">
-    <div class="col-6 card p-2">
-      <form @submit.prevent="createComment()" class="card elevation-3">
-        <div class="m-2 d-flex">
-          <img id="profile-img" class="p-2 col-md-2 rounded-circle" :src="account.picture" :alt="account.name">
-          <textarea v-model="editable.body" class="comment-form col-10 rounded" placeholder="Comment here" id="textarea"></textarea>
-          <label for="textarea"></label>
+  <div class="container-fluid">
+    <section class="row justify-content-center" v-if="account.id">
+      <div class="col-12 col-md-6 card p-2">
+        <form @submit.prevent="createComment()" class="card elevation-3">
+          <div class="m-2 d-flex">
+            <img id="profile-img" class="p-2 col-md-2 rounded-circle" :src="account.picture" :alt="account.name">
+            <textarea v-model="editable.body" class="comment-form col-10 rounded" placeholder="Comment here" id="textarea"></textarea>
+            <label for="textarea"></label>
+          </div>
+          <button class="btn btn-primary m-2">Post IT!</button>
+        </form>
+        <div  class="row p-2 m-1 border border-dark">
+          <div class="col-12" v-for="c in comments" :key="c.id">
+            <CommentCard :comment="c" />
+          </div>
         </div>
-        <button class="btn btn-primary m-2">Post IT!</button>
-      </form>
-      <div v-for="c in comments" :key="c.id" class="row p-2 m-1 border border-dark">
-        <CommentCard :comment="c" />
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 
@@ -148,6 +152,7 @@ export default {
         }
       },
 
+     
       async cancelEvent() {
         try {
           if (await Pop.confirm('Cancel Event!?')) {
