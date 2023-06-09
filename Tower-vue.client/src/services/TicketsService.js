@@ -35,6 +35,7 @@ async getMyTickets(){
 async deleteTicket(myTicketId){
   const res = await api.delete(`api/tickets/${myTicketId}`)
   AppState.myTickets = AppState.myTickets.filter(t => t.id != myTicketId)
+  AppState.tickets = AppState.tickets.filter(mt => mt.id !=myTicketId)
   logger.log(res.data)
 }
 

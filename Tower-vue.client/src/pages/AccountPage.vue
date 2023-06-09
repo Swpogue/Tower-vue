@@ -16,7 +16,9 @@ import { ticketsService } from "../services/TicketsService.js";
 import Pop from "../utils/Pop.js";
 export default {
   setup() {
-    onMounted(() => getMyTickets())
+    onMounted(
+      () => getMyTickets()
+      )
     async function getMyTickets() {
       try {
         await ticketsService.getMyTickets()

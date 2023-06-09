@@ -1,7 +1,7 @@
 <template>
   <!-- <router-link :to="{ name: 'AccountPage', params: { id: towerEvent.id } }"> -->
   <div class="rounded elevation-5 event-card">
-      <img class="rounded-top" :src="towerEvent.coverImg" :alt="towerEvent.name">
+      <img class="rounded-top" :src="towerEvent.coverImg" alt="">
       <div class="text-center p-2 rounded-bottom text-black fw-bold">
         <p class="m-0">{{ towerEvent.name }}</p>
         <p class="m-0">{{ towerEvent.ticketCount }} of {{ towerEvent.capacity }}<i class="mdi mdi-ticket ps-2"></i></p>
