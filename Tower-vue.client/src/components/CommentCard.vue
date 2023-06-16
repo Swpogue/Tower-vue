@@ -28,6 +28,7 @@ export default {
   setup(props){
     return {
       account: computed(() => AppState.account),
+      
       async deleteComment() {
         try {
           const commentId = props.comment.id
